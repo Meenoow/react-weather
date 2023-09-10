@@ -15,4 +15,6 @@ export default function Weather() {
             Hello from earth
         </h2>
     );
+    
+
 }
