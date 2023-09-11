@@ -7,6 +7,12 @@ export default function App() {
     <div className="App">
       <h1>Weather Search Engine</h1>
       <Search />
+      <footer>
+        Coded by <a href="">Ximena Castillo</a> and{" "}
+        <a href="https://github.com/Meenoow/react-weather" target="_blank">
+        Open-sourced on GitHub
+        </a> 
+      </footer>  
     </div>
   );
 }
