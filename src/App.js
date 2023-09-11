@@ -13,6 +13,7 @@ export default function App() {
         Open-sourced on GitHub
         </a> 
       </footer>  
+      <button className="btn btn-primary">Hello</button>
     </div>
   );
 }
