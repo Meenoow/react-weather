@@ -36,7 +36,7 @@ export default function Search() {
           <input type="search" placeholder="Search a city" onChange={updateCity} />
         </div>
         <div className="col-3">
-          <button type="submit" className="btn btn-primary" >Search</button>
+          <button type="submit" className="btn btn-primary w-100">Search</button>
         </div>  
       </div>
     </form>
