@@ -6,7 +6,6 @@ import Weather from "./Weather";
 export default function App() {
   return (
     <div className="App">
-      <h1>Weather Search Engine</h1>
       <Weather />
       <footer>
         Coded by <a href="">Ximena Castillo</a> and{" "}

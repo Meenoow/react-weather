@@ -1,65 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Weather.css";
 
 
 export default function Weather() {
-    return (
-        <div className="Weather"> 
-            <form>
-                <div className="row">
-                    <div className="col-9">
-                        <input
-                            type="search"
-                            placeholder="Enter a city..."
-                            className="form-contrtol"
-                            autoFocus="on"
-                        />
-                    </div>
-                    <div className="col-3">
-                        <input
-                            type="submit"
-                            value="Search"
-                            className="btn btn-primary w-100"
-                        />
-                    </div>
-                </div>    
-            </form>   
-            <h1>New York</h1>
-            <ul>
-                <li>Wednesday 7:00</li>
-                <li>Mostly coudy</li>
-            </ul>
-            <div className="row mt-3">
-                <div className="col-6">
-                    <div className="clearfix">
-                        <img 
-                        src="data:image/png;base64,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" 
-                        alt="rainy"
-                        className="float-left" 
-                        />
-                        <span className="temperature">
-                            6
-                        </span>
-                        <span className="unit">
-                            ºC
-                        </span>
+    const [weatherData, setWeatherData] = useState({ ready: false });
+    function displayWeather(response) {
+        setWeatherData({
+            ready: true,
+            city: response.data.name,
+            date: "Wednesday 7:00",
+            temperature: response.data.main.temp,
+            description: response.data.weather[0].description,
+            wind: response.data.wind.speed,
+            humidity: response.data.main.humidity,
+            iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII=" 
+        })
+    }
+
+    if (weatherData.ready){
+        return (
+            <div className="Weather"> 
+                <form>
+                    <div className="row">
+                        <div className="col-9">
+                            <input
+                                type="search"
+                                placeholder="Enter a city..."
+                                className="form-contrtol"
+                                autoFocus="on"
+                            />
+                        </div>
+                        <div className="col-3">
+                            <input
+                                type="submit"
+                                value="Search"
+                                className="btn btn-primary w-100"
+                            />
+                        </div>
                     </div>    
-                </div>
-                <div className="col-6">
-                    <ul>
-                        <li>
-                            Precipitation : 15%
-                        </li>
-                        <li>
-                            Humidity: 72%
-                        </li>
-                        <li>
-                            Wind: 13km/r
-                        </li>
-                    </ul>
+                </form>   
+                <h1>{weatherData.city}</h1>
+                <ul>
+                    <li>{weatherData.date}</li>
+                    <li className="text-capitalize">{weatherData.description}</li>
+                </ul>
+                <div className="row mt-3">
+                    <div className="col-6">
+                        <div className="clearfix">
+                            <img 
+                            src={weatherData.iconUrl}
+                            alt={weatherData.description}
+                            className="float-left" 
+                            />
+                            <span className="temperature">
+                                {Math.round(weatherData.temperature)}
+                            </span>
+                            <span className="unit">
+                                ºC
+                            </span>
+                        </div>    
+                    </div>
+                    <div className="col-6">
+                        <ul>
+                            <li>
+                                Precipitation : 15%
+                            </li>
+                            <li>
+                                Humidity: {weatherData.humidity}%
+                            </li>
+                            <li>
+                                Wind: {weatherData.wind} km/h
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        let city = "London"
+        let units = "metric";
+        let apiKey = "0d55405ea37f9b16a55f03b2fb1326a2";
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+        axios.get(apiUrl).then(displayWeather);
+
+        return "Loading...";
+    }
 }
 
