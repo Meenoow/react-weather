@@ -8,6 +8,7 @@ export default function App() {
     <div className="App">
       <Weather defaultCity="Berlin" />
       <footer>
+      // eslint-disable-next-line
         Coded by <a href="">Ximena Castillo</a> and{" "}
         <a href="https://github.com/Meenoow/react-weather" target="_blank">
         Open-sourced on GitHub
