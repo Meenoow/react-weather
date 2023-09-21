@@ -39,29 +39,33 @@ export default function Weather(props) {
 
     if (weatherData.ready){
         return (
-            <div className="Weather"> 
-                <form onSubmit={handleSearch}>
-                    <div className="row">
-                        <div className="col-9">
-                            <input
-                                type="search"
-                                placeholder="Enter a city..."
-                                className="form-contrtol"
-                                autoFocus="on"
-                                onChange={cityChange}
-                            />
-                        </div>
-                        <div className="col-3">
-                            <input
-                                type="submit"
-                                value="Search"
-                                className="btn btn-primary w-100"
-                            />
-                        </div>
-                    </div>    
-                </form>  
+            <div className="Container">
+                <div className="Search">
+                    <form onSubmit={handleSearch}>
+                        <div className="row">
+                            <div className="col-9">
+                                <input
+                                    type="search"
+                                    placeholder="Enter a city..."
+                                    className="form-contrtol"
+                                    autoFocus="on"
+                                    onChange={cityChange}
+                                />
+                            </div>
+                            <div className="col-3">
+                                <input
+                                    type="submit"
+                                    value="Search"
+                                    className="btn btn-primary w-100"
+                                />
+                            </div>
+                        </div>    
+                    </form>  
+                </div>
                 <WeatherInfo data={weatherData}/> 
+                 
                 <WeatherForecast coordinates={weatherData.coordinates}/>
+                
             </div>
         );
     } else {
