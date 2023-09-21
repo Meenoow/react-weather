@@ -20,8 +20,9 @@
 }
 
 .WeatherInfo li {
+    color: whitesmoke;
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 600;
     line-height: 25px;
     list-style: none;
 }
@@ -34,7 +35,7 @@
 
 .WeatherInfo .Temp {
     font-weight: 400 bold;
-    color: rgb(33, 33, 33);
+    color: whitesmoke;
     font-size: 84px;
     line-height: 34px;
     padding-bottom: 20px;
@@ -43,8 +44,8 @@
 
 .WeatherInfo .unit {
     font-size: 19px;
-    color: rgb(33, 33, 33);
-    font-weight: 400;
+    color: whitesmoke;
+    font-weight: 600;
     position: relative;
     top: -42px;
     line-height: 1;
@@ -52,14 +53,14 @@
 }
 
 .Place {
-    border: 3px solid red;
+    background-color: whitesmoke;
     margin: 20px auto;
     padding: 20px;
     border-radius: 30px;
 }
 
 .WeatherDescription {
-    border: 3px solid blue;
+    background: #FECD30;
     margin: 20px auto;
     padding: 30px 20px 10px 80px;
     border-radius: 30px;

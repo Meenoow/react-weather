@@ -12,7 +12,7 @@
 }
 
 .WeatherForecast {
-    border: 3px solid red;
+    background: #FC9CB4;
     margin: 10px auto;
     padding: 25px;
     border-radius: 30px;
@@ -24,7 +24,8 @@
 }
 
 .WeatherForecast-temperature {
-    border: 3px solid red;
+    color: whitesmoke;
+    background: black;
     border-radius: 30px;
     margin-top: 10px;
 }
@@ -48,6 +49,11 @@
     font-size: 64px;
     line-height: 34px;
     padding-left: 10px;
+}
+
+.WeatherTemperature a {
+    text-decoration: none;
+    color: black;
 }
 
 .Weather .unit {

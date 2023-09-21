@@ -1,13 +1,17 @@
 .Container {
-    border: 3px solid red;
+    background-color: rgba(240, 240, 240, 0.8);
     margin: 40px auto;
     padding: 30px;
     border-radius: 40px;
 }
 
 .Search {
-    border: 3px solid red;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 10px auto;
+    padding: 10px;
     border-radius: 30px;
 }
+
+.Search .btn {
+    color: white;
+}
+

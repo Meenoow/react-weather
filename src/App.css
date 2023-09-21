@@ -6,3 +6,9 @@
 .App footer {
     font-size: 11px;
 }
+
+body {
+   background-image: url(./Media/5314930.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+}
