@@ -10,7 +10,7 @@ export default function App() {
       <footer>
         Coded by{" "} 
         <a 
-        href=""
+        href="https://clinquant-cupcake-845851.netlify.app/"
         target="_blank"
         rel="noopener noreferrer"
         >
